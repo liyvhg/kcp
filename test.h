@@ -83,12 +83,12 @@ static inline void isleep(unsigned long millisecond)
 #include <list>
 #include <vector>
 
-// ´øÑÓ³ÙµÄÊı¾İ°ü
+// å¸¦å»¶è¿Ÿçš„æ•°æ®åŒ…
 class DelayPacket
 {
 public:
 	virtual ~DelayPacket() {
-		if (_ptr) delete _ptr;
+		if (_ptr) delete[] _ptr;
 		_ptr = NULL;
 	}
 
@@ -113,7 +113,7 @@ protected:
 	IUINT32 _ts;
 };
 
-// ¾ùÔÈ·Ö²¼µÄËæ»úÊı
+// å‡åŒ€åˆ†å¸ƒçš„éšæœºæ•°
 class Random
 {
 public:
@@ -142,27 +142,29 @@ protected:
 	std::vector<int> seeds;
 };
 
-// ÍøÂçÑÓ³ÙÄ£ÄâÆ÷
+// ç½‘ç»œå»¶è¿Ÿæ¨¡æ‹Ÿå™¨
 class LatencySimulator
 {
 public:
+
 	virtual ~LatencySimulator() {
 		clear();
 	}
 
-	// lostrate: Íù·µÒ»ÖÜ¶ª°üÂÊµÄ°Ù·Ö±È£¬Ä¬ÈÏ 10%
-	// rttmin£ºrtt×îĞ¡Öµ£¬Ä¬ÈÏ 60
-	// rttmax£ºrtt×î´óÖµ£¬Ä¬ÈÏ 125
+	// lostrate: å¾€è¿”ä¸€å‘¨ä¸¢åŒ…ç‡çš„ç™¾åˆ†æ¯”ï¼Œé»˜è®¤ 10%
+	// rttminï¼šrttæœ€å°å€¼ï¼Œé»˜è®¤ 60
+	// rttmaxï¼šrttæœ€å¤§å€¼ï¼Œé»˜è®¤ 125
 	LatencySimulator(int lostrate = 10, int rttmin = 60, int rttmax = 125, int nmax = 1000): 
 		r12(100), r21(100) {
 		current = iclock();		
-		this->lostrate = lostrate / 2;	// ÉÏÃæÊı¾İÊÇÍù·µ¶ª°üÂÊ£¬µ¥³Ì³ıÒÔ2
+		this->lostrate = lostrate / 2;	// ä¸Šé¢æ•°æ®æ˜¯å¾€è¿”ä¸¢åŒ…ç‡ï¼Œå•ç¨‹é™¤ä»¥2
 		this->rttmin = rttmin / 2;
 		this->rttmax = rttmax / 2;
 		this->nmax = nmax;
+		tx1 = tx2 = 0;
 	}
 
-	// Çå³ıÊı¾İ
+	// æ¸…é™¤æ•°æ®
 	void clear() {
 		DelayTunnel::iterator it;
 		for (it = p12.begin(); it != p12.end(); it++) {
@@ -175,13 +177,15 @@ public:
 		p21.clear();
 	}
 
-	// ·¢ËÍÊı¾İ
-	// peer - ¶Ëµã0/1£¬´Ó0·¢ËÍ£¬´Ó1½ÓÊÕ£»´Ó1·¢ËÍ´Ó0½ÓÊÕ
+	// å‘é€æ•°æ®
+	// peer - ç«¯ç‚¹0/1ï¼Œä»0å‘é€ï¼Œä»1æ¥æ”¶ï¼›ä»1å‘é€ä»0æ¥æ”¶
 	void send(int peer, const void *data, int size) {
 		if (peer == 0) {
+			tx1++;
 			if (r12.random() < lostrate) return;
 			if ((int)p12.size() >= nmax) return;
 		}	else {
+			tx2++;
 			if (r21.random() < lostrate) return;
 			if ((int)p21.size() >= nmax) return;
 		}
@@ -197,7 +201,7 @@ public:
 		}
 	}
 
-	// ½ÓÊÕÊı¾İ
+	// æ¥æ”¶æ•°æ®
 	int recv(int peer, void *data, int maxsize) {
 		DelayTunnel::iterator it;
 		if (peer == 0) {
@@ -221,6 +225,10 @@ public:
 		delete pkt;
 		return maxsize;
 	}
+
+public:
+	int tx1;
+	int tx2;
 
 protected:
 	IUINT32 current;
