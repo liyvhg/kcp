@@ -158,13 +158,19 @@ Both the use and configuration of the protocol is very simple, in most cases, af
 - [HP-Socket](https://github.com/ldcsaa/HP-Socket): High Performance TCP/UDP/HTTP Communication Component.
 - [frp](https://github.com/fatedier/frp): A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet. 
 - [asio-kcp](https://github.com/libinzhangyuan/asio_kcp): Use the complete UDP network library of KCP, complete implementation of UDP-based link state management, session control and KCP protocol scheduling, etc.
+- [kcp-cpp](https://github.com/Unit-X/kcp-cpp): Multi-platform (Windows, MacOS, Linux) C++ implementation of KCP as a simple library in your application. Contains socket handling and helper functions for all platforms.
+- [kcp-perl](https://github.com/Homqyy/kcp-perl): Perl extensions for kcp. It's OOP and Perl-Like.
 - [kcp-java](https://github.com/hkspirt/kcp-java)：Implementation of Java version of KCP protocol.
 - [kcp-netty](https://github.com/szhnet/kcp-netty)：Java implementation of KCP based on Netty.
 - [java-kcp](https://github.com/l42111996/java-Kcp): JAVA version KCP, based on netty implementation (including fec function)
 - [csharp-kcp](https://github.com/l42111996/csharp-kcp): csharp version KCP, based on dotNetty implementation (including fec function)
 - [kcp-go](https://github.com/xtaci/kcp-go): High-security GO language implementation of kcp, including simple implementation of UDP session management, as a base library for subsequent development.
 - [kcp-csharp](https://github.com/limpo1989/kcp-csharp): The csharp migration of kcp, containing the session management, which can access the above kcp-go server.
+- [KcpTransport](https://github.com/Cysharp/KcpTransport): KcpTransport is built on top of KCP ported to Pure C#, with implementations of Syn Cookie handshake, connection management, Unreliable communication, and KeepAlive. In the future, encryption will also be supported.
+- [Kcp-CSharp](https://github.com/Molth/Kcp-CSharp): a pure C# KCP instance callback(delegate) wrapper for (Unity/Godot/.NET)
+- [kcp2k](https://github.com/vis2k/kcp2k/): Line-by-line translation to C#, with optional Server/Client on top.
 - [kcp-rs](https://github.com/en/kcp-rs): The rust migration of KCP
+- [kcp-rust-native](https://github.com/b23r0/kcp-rust-native)：KCP bindings for Rust
 - [lua-kcp](https://github.com/linxiaolong/lua-kcp): Lua extension of KCP, applicable for Lua server
 - [node-kcp](https://github.com/leenjewel/node-kcp): KCP interface for node-js 
 - [nysocks](https://github.com/oyyd/nysocks): Nysocks provides proxy services base on libuv and kcp for nodejs users. Both SOCKS5 and ss protocols are supported in the client.
@@ -173,6 +179,8 @@ Both the use and configuration of the protocol is very simple, in most cases, af
 - [xkcptun](https://github.com/liudf0716/xkcptun): C language implementation of kcptun, embedded-friendly for [LEDE](https://github.com/lede-project/source) and [OpenWrt](https://github.com/openwrt/openwrt) projects.
 - [yasio](https://github.com/yasio/yasio): A cross-platform asynchronous socket library focus on any client application with kcp support, easy to use, API same with UDP and TCP, see [benchmark-pump](https://github.com/yasio/yasio/blob/master/benchmark.md).
 - [gouxp](https://github.com/shaoyuan1943/gouxp): Implementing a callback-based KCP development package with Go, with decryption and FEC support, is easy to use.
+- [kcp.py](https://github.com/RealistikDash/kcp.py): Python bindings and networking with an emphasis on dev friendliness.
+- [pykcp](https://github.com/enkiller/pykcp): KCP implementation for Python version.
 
 # Protocol Comparison
 

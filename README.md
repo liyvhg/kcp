@@ -161,12 +161,18 @@ vcpkg中的kcp库由Microsoft团队成员和社区贡献者保持最新状态。
 - [kcp-netty](https://github.com/szhnet/kcp-netty): kcp的Java语言实现，基于netty。
 - [java-kcp](https://github.com/l42111996/java-Kcp): JAVA版本KCP,基于netty实现(包含fec功能)
 - [csharp-kcp](https://github.com/l42111996/csharp-kcp): csharp版本KCP,基于dotNetty实现(包含fec功能)
+- [kcp-cpp](https://github.com/Unit-X/kcp-cpp): KCP 的多平台（Windows、MacOS、Linux）C++ 实现作为应用程序中的简单库。包含适用于所有平台的套接字处理和辅助函数。
+- [kcp-perl](https://github.com/Homqyy/kcp-perl): kcp的Perl实现，其是面向对象的，Perl-Like的。
 - [kcp-go](https://github.com/xtaci/kcp-go): 高安全性的kcp的 GO语言实现，包含 UDP会话管理的简单实现，可以作为后续开发的基础库。 
 - [kcp-csharp](https://github.com/limpo1989/kcp-csharp): kcp的 csharp移植，同时包含一份回话管理，可以连接上面kcp-go的服务端。
 - [kcp-csharp](https://github.com/KumoKyaku/KCP): 新版本 Kcp的 csharp移植。线程安全，运行时无alloc，对gc无压力。
+- [KcpTransport](https://github.com/Cysharp/KcpTransport): kcp的csharp移植，实现了 Syn Cookie 握手、连接管理、不可靠通信、KeepAlive，未来还将支持加密。
+- [Kcp-CSharp](https://github.com/Molth/Kcp-CSharp): kcp的csharp移植，非托管包装器。
+- [kcp2k](https://github.com/vis2k/kcp2k/): Line-by-line translation to C#, with optional Server/Client on top.
 - [kcp-rs](https://github.com/en/kcp-rs): KCP的 rust移植
 - [kcp-rust](https://github.com/Matrix-Zhang/kcp)：新版本 KCP的 rust 移植
 - [tokio-kcp](https://github.com/Matrix-Zhang/tokio_kcp)：rust tokio 的 kcp 集成
+- [kcp-rust-native](https://github.com/b23r0/kcp-rust-native)：rust 的 kcp bindings
 - [lua-kcp](https://github.com/linxiaolong/lua-kcp): KCP的 Lua扩展，用于 Lua服务器
 - [node-kcp](https://github.com/leenjewel/node-kcp): node-js 的 KCP 接口  
 - [nysocks](https://github.com/oyyd/nysocks): 基于libuv实现的[node-addon](https://nodejs.org/api/addons.html)，提供nodejs版本的代理服务，客户端接入支持SOCKS5和ss两种协议
@@ -178,15 +184,23 @@ vcpkg中的kcp库由Microsoft团队成员和社区贡献者保持最新状态。
 - [et-frame](https://github.com/egametang/ET): C#前后端框架(前端unity3d)，统一用C#开发游戏，实现了前后端kcp协议
 - [yasio](https://github.com/yasio/yasio): 一个跨平台专注于任意客户端程序的异步socket库, 易于使用，相同的API操作KCP/TCP/UDP, 性能测试结果: [benchmark-pump](https://github.com/yasio/yasio/blob/master/benchmark.md).
 - [gouxp](https://github.com/shaoyuan1943/gouxp): 用Go实现基于回调方式的KCP开发包，包含加解密和FEC支持，简单易用。  
+- [skcp](https://github.com/xboss/skcp): 基于libev实现的库，具备传输加密及基本的连接管理能力。
+- [pykcp](https://github.com/enkiller/pykcp): Python 版本的 KCP 实现
 
 # 商业案例
 
-- [明日帝国](https://www.taptap.com/app/50664)：Game K17 的 《明日帝国》 （Google Play），使用 KCP 加速游戏消息，让全球玩家流畅联网
-- [仙灵大作战](https://www.taptap.com/app/27242)：4399 的 MOBA游戏，使用 KCP 优化游戏同步
+- [原神](https://ys.mihoyo.com/)：米哈游的《原神》使用 KCP 降低游戏消息的传输耗时，提升操作的体验。
+- [SpatialOS](https://improbable.io/spatialOS): 大型多人分布式游戏服务端引擎，BigWorld 的后继者，使用 KCP 加速数据传输。
+- [西山居](https://www.xishanju.com/)：使用 KCP 进行游戏数据加速。
 - [CC](http://cc.163.com/)：网易 CC 使用 kcp 加速视频推流，有效提高流畅性
 - [BOBO](http://bobo.163.com/)：网易 BOBO 使用 kcp 加速主播推流
-- [云帆加速](http://www.yfcloud.com/)：使用 KCP 加速文件传输和视频推流，优化了台湾主播推流的流畅度
-- [SpatialOS](https://improbable.io/spatialOS): 大型多人分布式游戏服务端引擎，BigWorld 的后继者，使用 KCP 加速数据传输。
+- [UU](https://uu.163.com)：网易 UU 加速器使用 KCP/KCPTUN 经行远程传输加速。
+- [阿里云](https://cn.aliyun.com/)：阿里云的视频传输加速服务 GRTN 使用 KCP 进行音视频数据传输优化，动态加速产品也使用 KCP。
+- [云帆加速](http://www.yfcloud.com/)：使用 KCP 加速文件传输和视频推流，优化了台湾主播推流的流畅度。
+- [明日帝国](https://www.taptap.com/app/50664)：Game K17 的 《明日帝国》 （Google Play），使用 KCP 加速游戏消息，让全球玩家流畅联网
+- [仙灵大作战](https://www.taptap.com/app/27242)：4399 的 MOBA游戏，使用 KCP 优化游戏同步
+
+KCP 成功的运行在多个用户规模上亿的项目上，为他们提供了更加灵敏和丝滑网络体验。
 
 欢迎告知更多案例
 
